@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<p></p>
+<h2>New Post</h2>
+<form method="POST" class="post-form">
+    {% csrf_token %}
+        {{ form.as_p }}
+        {% if user.is_authenticated %}
+            <button type="submit" class="btn btn-info">Save</button>
+        {% endif %}
+        <p></p>
+</form>
+<div class="edit">
+
+</div>
+{% endblock %}

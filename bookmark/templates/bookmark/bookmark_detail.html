@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detail
+{% endblock %}
+
+{% block content %}
+SITE: {{object.site_name}}</br>
+<p></p>
+URL: {{object.url}}
+<p></p>
+<tr>
+    <td><a href="{% url 'bookmark:update' pk=bookmark.id %}" class="btn btn-success btn-sm">Modify</a></td>
+    <td><a href="{% url 'bookmark:delete' pk=bookmark.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+    <td><a href="{% url 'bookmark:list' %}" class="btn btn-success btn-sm">List</a></td>
+</tr>
+
+{% endblock %}

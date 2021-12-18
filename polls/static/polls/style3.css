@@ -1,0 +1,13 @@
+.row, col{
+    padding: 20px 100px;
+}
+
+.detail{
+    margin-left: 100px;
+}
+
+.alarm {
+    margin-left: 100px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
