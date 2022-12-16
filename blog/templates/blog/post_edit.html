@@ -2,12 +2,12 @@
 
 {% block content %}
 <p></p>
-<h2>New Post</h2>
+<h2>글쓰기</h2>
 <form method="POST" class="post-form">
     {% csrf_token %}
         {{ form.as_p }}
         {% if user.is_authenticated %}
-            <button type="submit" class="btn btn-info">Save</button>
+            <button type="submit" class="btn btn-info">저장하기</button>
         {% endif %}
         <p></p>
 </form>

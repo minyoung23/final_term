@@ -4,7 +4,7 @@
 <p></p>
 <div class="btn-group">
     {% if user.is_authenticated %}
-        <a href="{% url 'blog:post_new' %}" class="btn btn-info">Add New Post</a>
+        <a href="{% url 'blog:post_new' %}" class="btn btn-secondary">글 작성하기</a>
     {% endif %}
 </div>
 <p></p>
@@ -12,10 +12,11 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">NUM</th>
-            <th scope="col">TITLE</th>
-            <th scope="col">DETAIL</th>
-            <th scope="col">EDIT</th>
+            <th scope="col">#</th>
+            <th scope="col">제목</th>
+            <th scope="col">상세히 보기</th>
+            <th scope="col">편집하기</th>
+            <th scope="col">작성시간</th>
         </tr>
     </thead>
 
@@ -24,8 +25,18 @@
         <tr>
             <td>{{forloop.counter}}</td>
             <td>{{post.title}}</td>
-            <td><a href="{% url 'blog:post_detail' pk=post.pk %}" class="btn btn-success btn-sm">DETAIL</a></td>
-            <td><a href="{% url 'blog:post_edit' pk=post.pk %}" class="btn btn-success btn-sm">EDIT</a></td>
+
+            <td><a href="{% url 'blog:post_detail' pk=post.pk %}" class="btn btn-success btn-sm">상세히 보기</a></td>
+
+            <td>
+                {% if user.is_authenticated %}
+            <a href="{% url 'blog:post_edit' pk=post.pk %}" class="btn btn-primary">편집하기</a>
+             {% else %}
+                <a href="" onclick="alert('로그인한 관리자만 접근 가능합니다..')" class="btn btn-primary">편집하기</a>
+             {% endif %}
+            </td>
+            <td>{{post.published_date}}</td>
+
         </tr>
     {% endfor %}
     </tbody>

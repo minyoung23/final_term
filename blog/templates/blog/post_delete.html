@@ -2,11 +2,11 @@
 
 {% block content %}
 <p></p>
-<h1>Delete</h1>
+<h1>글을 정말 삭제하시겠습니까?</h1>
 <form method="POST" class="post-form">
     {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        <button type="submit" class="btn btn-danger btn-sm">삭제하기</button>
         <p></p>
 </form>
 {% endblock %}

@@ -17,8 +17,8 @@
 
 <div class="button">
     {% if user.is_authenticated %}
-        <a href="{% url 'blog:post_edit' pk=post.pk %}" class="btn btn-info">EDIT</a>
-        <a href="{% url 'blog:post_delete' pk=post.pk %}" class="btn btn-success btn-danger">DELETE</a>
+        <a href="{% url 'blog:post_edit' pk=post.pk %}" class="btn btn-primary">수정하기</a>
+        <a href="{% url 'blog:post_delete' pk=post.pk %}" class="btn btn-danger">삭제하기</a>
     {% endif %}
 </div>
 {% endblock %}

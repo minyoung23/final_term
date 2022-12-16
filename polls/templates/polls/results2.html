@@ -15,7 +15,7 @@
 <div class="container">
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'home:home' %}">MinYoung</a>
+  <a class="navbar-brand" href="{% url 'home:home' %}">민영이네!</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,16 +23,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'home:home' %}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'home:home' %}">홈 <span class="sr-only">(current)</span></a>
       </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{% url 'polls:index' %}">Polls <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'polls:index' %}">투표 <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{% url 'bookmark:list' %}">Bookmark <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'bookmark:list' %}">북마크 <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{% url 'blog:post_table' %}">Blog <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'blog:post_table' %}">블로그 <span class="sr-only">(current)</span></a>
         </li>
     </ul>
   </div>
@@ -40,7 +40,7 @@
 </div>
 <p></p>
 <div class="alarm">
-    <h1>전체 설문조사 결과입니다.</h1>
+    <h2>전체 설문조사 결과입니다.</h2>
 </div>
 
 <div class="row">
@@ -48,12 +48,13 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">NUM</th>
-            <th scope="col">QUESTION</th>
-            <th scope="col">RESULT</th>
+            <th scope="col">#</th>
+            <th scope="col">질문</th>
+            <th scope="col">결과</th>
             <th scope="col"></th>
             <th scope="col"></th>
-            <th scope="col">VOTE</th>
+            <th scope="col">투표</th>
+            <th scope="col">차트</th>
         </tr>
     </thead>
 
@@ -68,7 +69,8 @@
                 {{choice.choice_text}}--{{choice.votes}} vote{{choice.votes|pluralize}}
             </td>
             {% endfor %}
-            <td><a href="{% url 'polls:detail' question.id %}" class="btn btn-success btn-sm">Vote</a></td>
+            <td><a href="{% url 'polls:detail' question.id %}" class="btn btn-dark">투표</a></td>
+            <td><a href="{% url 'polls:chart' question.id %}" class="btn btn-warning">차트</a></td>
         </tr>
     {% endfor%}
     </tbody>
