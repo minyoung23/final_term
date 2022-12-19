@@ -1,12 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from django.views.generic.edit import DeleteView
 from .models import Post
 from .forms import PostForm
-from django.urls import reverse_lazy
 
-
-# Create your views here.
 def post_table(request):
     posts=Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_table.html', {'posts': posts})

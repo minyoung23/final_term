@@ -6,7 +6,7 @@ Highcharts.chart('container', {
     plotShadow: false,
     type: 'pie'
   },
-  title: chart_title, //변수형태에 따라 chart_title 이름이 바뀌게 하기
+  title: chart_title,
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
   },
